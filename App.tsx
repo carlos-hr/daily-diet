@@ -1,3 +1,4 @@
+import { Loading } from "@components/Loading";
 import {
   useFonts,
   NunitoSans_400Regular,
@@ -18,7 +19,7 @@ export default function App() {
         translucent
       />
       <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
-        <Title>Initial Setup</Title>
+        {fontsLoaded ? <Title>App</Title> : <Loading />}
       </View>
     </ThemeProvider>
   );
