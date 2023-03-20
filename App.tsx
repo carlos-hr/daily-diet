@@ -3,8 +3,9 @@ import {
   NunitoSans_400Regular,
   NunitoSans_700Bold,
 } from "@expo-google-fonts/nunito-sans";
-import { StatusBar, View } from "react-native";
-import styled, { ThemeProvider } from "styled-components/native";
+import { StatusBar } from "react-native";
+import { Routes } from "./src/routes";
+import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/theme";
 
 export default function App() {
@@ -17,13 +18,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
-        <Title>Initial Setup</Title>
-      </View>
+      {fontsLoaded && <Routes />}
     </ThemeProvider>
   );
 }
-
-const Title = styled.Text`
-  font-family: ${({ theme }) => theme.font_family.bold};
-`;
