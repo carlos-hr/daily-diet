@@ -1,13 +1,15 @@
-import { View } from "react-native";
-import styled from "styled-components/native";
+import { Container, LogoContainer } from "./styles";
+import { Image } from "react-native";
+import logo from "@assets/logo.png";
+import { Header } from "@components/Header";
 
 export function Home() {
   return (
-    <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
-      <Title>Initial Setup</Title>
-    </View>
+    <Container>
+      <Header showBackButton />
+      {/* <LogoContainer>
+        <Image source={logo} />
+      </LogoContainer> */}
+    </Container>
   );
 }
-const Title = styled.Text`
-  font-family: ${({ theme }) => theme.font_family.bold};
-`;
