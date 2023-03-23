@@ -8,6 +8,7 @@ interface Props {
 
 export const Container = styled.View<Props>`
   padding: 24px;
+  flex-direction: row;
   background-color: ${({ theme, type }) => {
     switch (type) {
       case "primary":
@@ -17,10 +18,14 @@ export const Container = styled.View<Props>`
         return theme.colors.red_light;
 
       case "tertiary":
-        return theme.colors.gray_5;
+        return theme.colors.gray_500;
 
       default:
         return theme.colors.green_light;
     }
   }};
+`;
+
+export const OptionalContent = styled.View`
+  margin: auto;
 `;
