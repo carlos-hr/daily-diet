@@ -1,3 +1,4 @@
+import { Loading } from "@components/Loading";
 import {
   useFonts,
   NunitoSans_400Regular,
@@ -18,7 +19,8 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded && <Routes />}
+
+      {fontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
 }
