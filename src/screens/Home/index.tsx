@@ -1,6 +1,6 @@
 import { Container, LogoContainer } from "./styles";
 import { Image } from "react-native";
-import { Statistics } from "@components/Statistics";
+import { HighlightCard } from "@components/HighlightCard";
 import logo from "@assets/logo.png";
 
 export function Home() {
@@ -10,7 +10,7 @@ export function Home() {
         <Image source={logo} />
       </LogoContainer>
 
-      <Statistics goal="achieved" percentOfMealsOnDiet={90} />
+      <HighlightCard type="positive" percentOfMealsOnDiet={90} />
     </Container>
   );
 }

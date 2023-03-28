@@ -1,14 +1,28 @@
 import styled from "styled-components/native";
 
-export type StatisticsStylesProps = "achieved" | "fail";
+export type HighlightCardStylesProps = "positive" | "negative" | "neutral";
 
 interface Props {
-  type: StatisticsStylesProps;
+  type: HighlightCardStylesProps;
 }
 
 export const Container = styled.View<Props>`
-  background-color: ${({ theme, type }) =>
-    type === "achieved" ? theme.colors.green_light : theme.colors.red_light};
+  background-color: ${({ theme, type }) => {
+    switch (type) {
+      case "positive":
+        return theme.colors.green_light;
+
+      case "negative":
+        return theme.colors.red_light;
+
+      case "neutral":
+        return theme.colors.gray_500;
+
+      default:
+        return theme.colors.green_light;
+    }
+  }};
+
   height: 120px;
   border-radius: 8px;
   flex-direction: row;
@@ -16,14 +30,14 @@ export const Container = styled.View<Props>`
   position: relative;
 `;
 
-export const MealsTextContainer = styled.View`
+export const TextContainer = styled.View`
   gap: 8px;
   justify-content: center;
   align-items: center;
   flex: 1;
 `;
 
-export const MealsPercentage = styled.Text`
+export const TextHighlight = styled.Text`
   font-family: ${({ theme }) => theme.font_family.bold};
   font-size: ${({ theme }) => theme.font_size.xl};
 `;
