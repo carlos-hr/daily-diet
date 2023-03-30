@@ -1,10 +1,16 @@
-import { Container, LogoContainer, NewMealContainer } from "./styles";
+import {
+  Container,
+  LogoContainer,
+  MealsList,
+  NewMealContainer,
+} from "./styles";
 import { Image, Text } from "react-native";
 import { HighlightCard } from "@components/HighlightCard";
 import logo from "@assets/logo.png";
 import { Button } from "@components/Button";
 import { Plus } from "phosphor-react-native";
 import { useTheme } from "styled-components/native";
+import { MealCard } from "@components/MealCard";
 
 export function Home() {
   const { colors } = useTheme();
@@ -26,6 +32,10 @@ export function Home() {
           variant="primary"
         />
       </NewMealContainer>
+
+      <MealsList>
+        <MealCard hour="20:00" meal="X-tudo" />
+      </MealsList>
     </Container>
   );
 }
