@@ -9,3 +9,12 @@ export const Container = styled(SafeAreaView)`
 export const LogoContainer = styled.View`
   align-items: center;
 `;
+
+export const NewMealContainer = styled.View`
+  gap: 12px;
+  margin-top: 40px;
+`;
+
+export const MealsList = styled.View`
+  margin-top: 40px;
+`;
