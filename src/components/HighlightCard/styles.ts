@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { Pressable } from "react-native";
 
 export type HighlightCardStylesProps = "positive" | "negative" | "neutral";
 
@@ -47,7 +48,7 @@ export const Description = styled.Text`
   font-size: ${({ theme }) => theme.font_size.xs};
 `;
 
-export const IconContainer = styled.Pressable`
+export const IconContainer = styled(Pressable)`
   justify-self: flex-end;
   position: absolute;
   right: 8px;
