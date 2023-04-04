@@ -14,22 +14,24 @@ interface StatisticsProps extends PressableProps {
   type: HighlightCardStylesProps;
   showDetailsButton?: boolean;
   navigationLink?: string;
-  percentOfMealsOnDiet: number;
+  numberStat: string;
+  fullWidth?: boolean;
 }
 
 export function HighlightCard(props: StatisticsProps) {
   const {
     type,
-    percentOfMealsOnDiet,
+    numberStat,
     showDetailsButton = false,
+    fullWidth = true,
     ...rest
   } = props;
   const { colors } = useTheme();
 
   return (
-    <Container type={type}>
+    <Container type={type} fullWidth={fullWidth}>
       <TextContainer>
-        <TextHighlight>{percentOfMealsOnDiet}%</TextHighlight>
+        <TextHighlight>{numberStat}</TextHighlight>
         <Description>das refeições dentro da dieta</Description>
       </TextContainer>
 

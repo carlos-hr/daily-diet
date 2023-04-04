@@ -81,7 +81,7 @@ export function Home() {
 
   const navigation = useNavigation();
 
-  function addNewMeal() {
+  function navigateToStatistics() {
     navigation.navigate("statistics");
   }
 
@@ -91,7 +91,12 @@ export function Home() {
         <Image source={logo} />
       </LogoContainer>
 
-      <HighlightCard type="positive" percentOfMealsOnDiet={90} />
+      <HighlightCard
+        type="positive"
+        numberStat="90%"
+        showDetailsButton
+        onPress={navigateToStatistics}
+      />
 
       <NewMealContainer>
         <Text>Refeições</Text>
@@ -100,7 +105,6 @@ export function Home() {
           buttonText="Nova refeição"
           Icon={<Plus color={colors.gray_500} size={20} weight="bold" />}
           variant="primary"
-          onPress={addNewMeal}
         />
       </NewMealContainer>
 
