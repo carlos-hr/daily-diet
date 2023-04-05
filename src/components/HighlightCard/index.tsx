@@ -14,14 +14,16 @@ interface StatisticsProps extends PressableProps {
   type: HighlightCardStylesProps;
   showDetailsButton?: boolean;
   navigationLink?: string;
-  numberStat: string;
+  highlightData: string;
+  highlightText: string;
   fullWidth?: boolean;
 }
 
 export function HighlightCard(props: StatisticsProps) {
   const {
     type,
-    numberStat,
+    highlightData,
+    highlightText,
     showDetailsButton = false,
     fullWidth = true,
     ...rest
@@ -31,8 +33,8 @@ export function HighlightCard(props: StatisticsProps) {
   return (
     <Container type={type} fullWidth={fullWidth}>
       <TextContainer>
-        <TextHighlight>{numberStat}</TextHighlight>
-        <Description>das refeições dentro da dieta</Description>
+        <TextHighlight>{highlightData}</TextHighlight>
+        <Description>{highlightText}</Description>
       </TextContainer>
 
       {showDetailsButton && (

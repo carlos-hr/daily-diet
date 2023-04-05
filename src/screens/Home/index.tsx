@@ -93,7 +93,8 @@ export function Home() {
 
       <HighlightCard
         type="positive"
-        numberStat="90%"
+        highlightData="90%"
+        highlightText="das refeições dentro da dieta"
         showDetailsButton
         onPress={navigateToStatistics}
       />
