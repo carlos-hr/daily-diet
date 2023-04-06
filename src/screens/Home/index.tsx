@@ -87,7 +87,7 @@ export function Home() {
 
   return (
     <Container>
-      <LogoContainer>
+      <LogoContainer style={{ marginBottom: 32 }}>
         <Image source={logo} />
       </LogoContainer>
 
