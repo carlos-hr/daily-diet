@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { TouchableOpacity } from "react-native";
 
 export type ButtonVariants = "primary" | "secondary";
 
@@ -6,7 +7,7 @@ interface ButtonStyleProps {
   variant: ButtonVariants;
 }
 
-export const Container = styled.TouchableOpacity<ButtonStyleProps>`
+export const Container = styled(TouchableOpacity)<ButtonStyleProps>`
   flex-direction: row;
   justify-content: center;
   align-items: center;

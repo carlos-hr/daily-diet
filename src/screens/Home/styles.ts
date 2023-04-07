@@ -15,6 +15,12 @@ export const NewMealContainer = styled.View`
   margin-top: 40px;
 `;
 
-export const MealsList = styled.View`
-  margin-top: 40px;
+export const DailyMealContainer = styled.View`
+  margin-top: 32px;
+`;
+
+export const MealDay = styled.Text`
+  font-family: ${({ theme }) => theme.font_family.bold};
+  font-size: ${({ theme }) => theme.font_size.md};
+  margin-bottom: 8px;
 `;

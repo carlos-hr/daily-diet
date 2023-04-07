@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "phosphor-react-native";
+import { PressableProps } from "react-native";
 import { useTheme } from "styled-components/native";
 import {
   Container,
@@ -9,26 +10,35 @@ import {
   HighlightCardStylesProps,
 } from "./styles";
 
-interface StatisticsProps {
+interface StatisticsProps extends PressableProps {
   type: HighlightCardStylesProps;
   showDetailsButton?: boolean;
   navigationLink?: string;
-  percentOfMealsOnDiet: number;
+  highlightData: string;
+  highlightText: string;
+  fullWidth?: boolean;
 }
 
 export function HighlightCard(props: StatisticsProps) {
-  const { type, percentOfMealsOnDiet, showDetailsButton = false } = props;
+  const {
+    type,
+    highlightData,
+    highlightText,
+    showDetailsButton = false,
+    fullWidth = true,
+    ...rest
+  } = props;
   const { colors } = useTheme();
 
   return (
-    <Container type={type}>
+    <Container type={type} fullWidth={fullWidth}>
       <TextContainer>
-        <TextHighlight>{percentOfMealsOnDiet}%</TextHighlight>
-        <Description>das refeições dentro da dieta</Description>
+        <TextHighlight>{highlightData}</TextHighlight>
+        <Description>{highlightText}</Description>
       </TextContainer>
 
       {showDetailsButton && (
-        <IconContainer>
+        <IconContainer {...rest}>
           <ArrowUpRight
             color={type === "positive" ? colors.green_dark : colors.red_dark}
             size={32}

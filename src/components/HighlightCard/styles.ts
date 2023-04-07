@@ -1,9 +1,11 @@
 import styled from "styled-components/native";
+import { Pressable } from "react-native";
 
 export type HighlightCardStylesProps = "positive" | "negative" | "neutral";
 
 interface Props {
   type: HighlightCardStylesProps;
+  fullWidth?: boolean;
 }
 
 export const Container = styled.View<Props>`
@@ -22,11 +24,11 @@ export const Container = styled.View<Props>`
         return theme.colors.green_light;
     }
   }};
+  width: ${(props) => (props.fullWidth ? "100%" : "50%")};
 
   height: 120px;
   border-radius: 8px;
   flex-direction: row;
-  margin-top: 48px;
   position: relative;
 `;
 
@@ -47,7 +49,7 @@ export const Description = styled.Text`
   font-size: ${({ theme }) => theme.font_size.xs};
 `;
 
-export const IconContainer = styled.Pressable`
+export const IconContainer = styled(Pressable)`
   justify-self: flex-end;
   position: absolute;
   right: 8px;
