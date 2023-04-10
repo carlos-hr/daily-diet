@@ -8,6 +8,7 @@ export function Statistics() {
     <Container>
       <Header
         type="primary"
+        variant="long"
         showBackButton
         Content={() => (
           <View style={{ marginTop: 24 }}>

@@ -2,16 +2,18 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components/native";
 
 export type HeaderStyleProps = "primary" | "secondary" | "tertiary";
+export type HeaderHeightProps = "long" | "short";
 
 interface Props {
   type: HeaderStyleProps;
+  variant: HeaderHeightProps;
 }
 
 export const Container = styled(SafeAreaView)<Props>`
   position: relative;
   z-index: 1;
-  height: 160px;
   padding: 12px;
+  height: ${({ variant }) => (variant === "long" ? "160px" : "80px")};
   background-color: ${({ theme, type }) => {
     switch (type) {
       case "primary":

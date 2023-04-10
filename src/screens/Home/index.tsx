@@ -5,7 +5,7 @@ import {
   MealDay,
   NewMealContainer,
 } from "./styles";
-import { Image, Text, FlatList, View } from "react-native";
+import { Image, Text, FlatList } from "react-native";
 import { HighlightCard } from "@components/HighlightCard";
 import logo from "@assets/logo.png";
 import { Button } from "@components/Button";
@@ -79,10 +79,14 @@ export function Home() {
     },
   ];
 
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
 
   function navigateToStatistics() {
-    navigation.navigate("statistics");
+    navigate("statistics");
+  }
+
+  function handleAddNewMeal() {
+    navigate("new-meal");
   }
 
   return (
@@ -106,6 +110,7 @@ export function Home() {
           buttonText="Nova refeição"
           Icon={<Plus color={colors.gray_500} size={20} weight="bold" />}
           variant="primary"
+          onPress={handleAddNewMeal}
         />
       </NewMealContainer>
 
