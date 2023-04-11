@@ -6,20 +6,15 @@ import { Container, GridStat, StatsContainer, Title } from "./styles";
 export function Statistics() {
   return (
     <Container>
-      <Header
-        type="primary"
-        variant="long"
-        showBackButton
-        Content={() => (
-          <View style={{ marginTop: 24 }}>
-            <HighlightCard
-              highlightText="das refeições dentro da dieta"
-              highlightData={"90%"}
-              type="positive"
-            />
-          </View>
-        )}
-      />
+      <Header type="primary" variant="long" showBackButton>
+        <View style={{ marginTop: 24 }}>
+          <HighlightCard
+            highlightText="das refeições dentro da dieta"
+            highlightData={"90%"}
+            type="positive"
+          />
+        </View>
+      </Header>
       <StatsContainer>
         <Title>Estatísticas gerais</Title>
 

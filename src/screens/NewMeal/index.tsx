@@ -5,15 +5,11 @@ import { Container, HeaderTextContainer } from "./styles";
 export function NewMeal() {
   return (
     <Container>
-      <Header
-        type="tertiary"
-        showBackButton
-        Content={() => (
-          <HeaderTextContainer>
-            <HighlightCard highlightText="Nova " type="neutral" />
-          </HeaderTextContainer>
-        )}
-      />
+      <Header type="tertiary" showBackButton>
+        <HeaderTextContainer>
+          <HighlightCard highlightText="Nova refeição" type="neutral" />
+        </HeaderTextContainer>
+      </Header>
     </Container>
   );
 }
