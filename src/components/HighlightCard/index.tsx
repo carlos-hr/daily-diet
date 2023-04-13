@@ -21,7 +21,7 @@ interface StatisticsProps extends PressableProps {
   highlightTextStyle?: string;
 }
 
-export function HighlightCard(props: StatisticsProps) {
+export function HighlightCard(props: React.PropsWithChildren<StatisticsProps>) {
   const {
     type,
     highlightData,
@@ -30,6 +30,7 @@ export function HighlightCard(props: StatisticsProps) {
     fullWidth = true,
     highlightDataStyle,
     highlightTextStyle,
+    children,
     ...rest
   } = props;
   const { colors } = useTheme();
@@ -47,6 +48,7 @@ export function HighlightCard(props: StatisticsProps) {
             {highlightText}
           </Description>
         )}
+        {children && children}
       </TextContainer>
 
       {showDetailsButton && (

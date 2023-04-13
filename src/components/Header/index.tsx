@@ -12,7 +12,6 @@ import {
 interface HeaderProps {
   type?: HeaderStyleProps;
   variant?: HeaderHeightProps;
-  Content?: React.FC;
   showBackButton?: boolean;
 }
 
