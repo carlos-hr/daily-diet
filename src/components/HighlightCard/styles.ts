@@ -1,7 +1,12 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 import { Pressable } from "react-native";
+import { TextStyle } from "react-native";
 
 export type HighlightCardStylesProps = "positive" | "negative" | "neutral";
+
+type CustomStyle = {
+  customStyle?: string;
+};
 
 interface Props {
   type: HighlightCardStylesProps;
@@ -39,14 +44,24 @@ export const TextContainer = styled.View`
   flex: 1;
 `;
 
-export const TextHighlight = styled.Text`
+export const TextHighlight = styled.Text<CustomStyle>`
   font-family: ${({ theme }) => theme.font_family.bold};
   font-size: ${({ theme }) => theme.font_size.xl};
+  ${({ customStyle }) =>
+    customStyle &&
+    css`
+      ${customStyle}
+    `}
 `;
 
-export const Description = styled.Text`
+export const Description = styled.Text<CustomStyle>`
   font-family: ${({ theme }) => theme.font_family.regular};
   font-size: ${({ theme }) => theme.font_size.xs};
+  ${({ customStyle }) =>
+    customStyle &&
+    css`
+      ${customStyle}
+    `}
 `;
 
 export const IconContainer = styled(Pressable)`

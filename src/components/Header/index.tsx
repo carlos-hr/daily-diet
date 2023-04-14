@@ -2,16 +2,26 @@ import { useNavigation } from "@react-navigation/native";
 import { ArrowLeft } from "phosphor-react-native";
 import { Pressable } from "react-native";
 import { useTheme } from "styled-components/native";
-import { Container, HeaderStyleProps, OptionalContent } from "./styles";
+import {
+  Container,
+  HeaderHeightProps,
+  HeaderStyleProps,
+  OptionalContent,
+} from "./styles";
 
 interface HeaderProps {
   type?: HeaderStyleProps;
-  Content?: React.FC;
+  variant?: HeaderHeightProps;
   showBackButton?: boolean;
 }
 
-export function Header(props: HeaderProps) {
-  const { Content, showBackButton = false, type = "secondary" } = props;
+export function Header(props: React.PropsWithChildren<HeaderProps>) {
+  const {
+    showBackButton = false,
+    type = "secondary",
+    variant = "short",
+    children,
+  } = props;
   const { colors } = useTheme();
   const { navigate } = useNavigation();
 
@@ -21,7 +31,7 @@ export function Header(props: HeaderProps) {
     } else if (type === "secondary") {
       return colors.red_dark;
     } else {
-      return colors.gray_700;
+      return colors.gray_100;
     }
   }
 
@@ -29,13 +39,13 @@ export function Header(props: HeaderProps) {
     navigate("home");
   }
   return (
-    <Container type={type}>
+    <Container type={type} variant={variant}>
       {showBackButton && (
         <Pressable onPress={goBack}>
           <ArrowLeft size={30} color={getIconColor()} />
         </Pressable>
       )}
-      <OptionalContent>{Content && <Content />}</OptionalContent>
+      <OptionalContent>{children}</OptionalContent>
     </Container>
   );
 }
