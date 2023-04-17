@@ -1,6 +1,6 @@
 import { Header } from "@components/Header";
 import { HighlightCard } from "@components/HighlightCard";
-import { Text } from "react-native";
+import { Input } from "@components/Input";
 import { Container, HeaderText, NewMealFormContainer } from "./styles";
 
 export function NewMeal() {
@@ -12,7 +12,9 @@ export function NewMeal() {
         </HighlightCard>
       </Header>
 
-      <NewMealFormContainer></NewMealFormContainer>
+      <NewMealFormContainer>
+        <Input label="Nome" />
+      </NewMealFormContainer>
     </Container>
   );
 }

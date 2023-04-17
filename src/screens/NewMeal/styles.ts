@@ -8,8 +8,10 @@ export const HeaderText = styled.Text`
 
 export const NewMealFormContainer = styled.View`
   z-index: 1;
+  margin-top: 12px;
   border-top-right-radius: 24px;
   border-top-left-radius: 24px;
   background-color: ${({ theme }) => theme.colors.gray_700};
   height: 100%;
+  padding: 24px;
 `;
