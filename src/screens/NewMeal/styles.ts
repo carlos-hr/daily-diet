@@ -15,3 +15,8 @@ export const NewMealFormContainer = styled.View`
   height: 100%;
   padding: 24px;
 `;
+
+export const TwoColumnsContainer = styled.View`
+  flex-direction: row;
+  gap: 24px;
+`;

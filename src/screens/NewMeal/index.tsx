@@ -1,7 +1,12 @@
 import { Header } from "@components/Header";
 import { HighlightCard } from "@components/HighlightCard";
 import { Input } from "@components/Input";
-import { Container, HeaderText, NewMealFormContainer } from "./styles";
+import {
+  Container,
+  TwoColumnsContainer,
+  HeaderText,
+  NewMealFormContainer,
+} from "./styles";
 
 export function NewMeal() {
   return (
@@ -14,6 +19,15 @@ export function NewMeal() {
 
       <NewMealFormContainer>
         <Input label="Nome" />
+
+        <Input label="Descrição" size="lg" />
+
+        <TwoColumnsContainer>
+          <Input label="Data" style={{ width: "50%" }} />
+          <Input label="Hora" style={{ width: "50%" }} />
+        </TwoColumnsContainer>
+
+        <TwoColumnsContainer></TwoColumnsContainer>
       </NewMealFormContainer>
     </Container>
   );
