@@ -7,7 +7,13 @@ interface StyleProps {
   size: InputSizes;
 }
 
-export const Container = styled.View``;
+interface ContainerStyleProps {
+  fullWidth: boolean;
+}
+
+export const Container = styled.View<ContainerStyleProps>`
+  width: ${({ fullWidth }) => (fullWidth ? "100%" : "50%")};
+`;
 
 export const InputLabel = styled.Text``;
 
