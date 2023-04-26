@@ -2,7 +2,9 @@ import { Button } from "@components/Button";
 import { Header } from "@components/Header";
 import { HighlightCard } from "@components/HighlightCard";
 import { Input } from "@components/Input";
+import { useNavigation } from "@react-navigation/native";
 import { Circle } from "phosphor-react-native";
+import { useState } from "react";
 import { View } from "react-native";
 import { useTheme } from "styled-components/native";
 import {
@@ -13,9 +15,13 @@ import {
   DietButton,
   ButtonText,
 } from "./styles";
+import { MealType } from "./types";
 
 export function NewMeal() {
   const { colors } = useTheme();
+  const { navigate } = useNavigation();
+
+  const [mealType, setMealType] = useState<MealType | null>(null);
 
   return (
     <View style={{ height: "100%" }}>
@@ -41,18 +47,32 @@ export function NewMeal() {
           </TwoColumnsContainer>
 
           <TwoColumnsContainer>
-            <DietButton isPressed variant="primary">
+            <DietButton
+              isPressed={mealType === "onDiet"}
+              variant="primary"
+              onPress={() => setMealType("onDiet")}
+            >
               <Circle color={colors.green_dark} weight="fill" size={8} />
               <ButtonText>Sim</ButtonText>
             </DietButton>
 
-            <DietButton isPressed variant="secondary">
+            <DietButton
+              isPressed={mealType === "offDiet"}
+              variant="secondary"
+              onPress={() => setMealType("offDiet")}
+            >
               <Circle color={colors.red_dark} weight="fill" size={8} />
               <ButtonText>Não</ButtonText>
             </DietButton>
           </TwoColumnsContainer>
         </NewMealFormContainer>
-        <Button buttonText="Cadastrar refeição" variant="primary" />
+        {mealType && (
+          <Button
+            buttonText="Cadastrar refeição"
+            variant="primary"
+            onPress={() => navigate("feedback", { type: mealType })}
+          />
+        )}
       </Container>
     </View>
   );

@@ -5,7 +5,7 @@ export declare global {
       statistics: undefined;
       "new-meal": undefined;
       feedback: {
-        type: "positive" | "negative";
+        type: "onDiet" | "offDiet";
       };
     }
   }
