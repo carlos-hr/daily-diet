@@ -7,25 +7,29 @@ interface ButtonStyleProps {
   variant: ButtonVariants;
 }
 
-export const Container = styled.View``;
-
 export const HeaderText = styled.Text`
   font-family: ${({ theme }) => theme.font_family.bold};
 `;
 
-export const NewMealFormContainer = styled.View`
+export const Container = styled.View`
   z-index: 1;
   margin-top: 12px;
   border-top-right-radius: 24px;
   border-top-left-radius: 24px;
   background-color: ${({ theme }) => theme.colors.gray_700};
-  height: 100%;
-  padding: 24px;
+  justify-content: space-between;
+  flex: 1;
+  padding: 12px;
+  padding-bottom: 24px;
+`;
+
+export const NewMealFormContainer = styled.View`
+  padding-top: 36px;
+  gap: 24px;
 `;
 
 export const TwoColumnsContainer = styled.View`
   flex-direction: row;
-  width: 100%;
   gap: 8px;
 `;
 
@@ -40,21 +44,31 @@ export const DietButton = styled.Pressable<ButtonStyleProps>`
   background-color: ${({ theme, isPressed }) =>
     !isPressed && theme.colors.gray_600};
 
-  flex-basis: 50%;
+  width: 48.5%;
   justify-content: center;
   align-items: center;
+  border-radius: 8px;
+
+  flex-direction: row;
+  gap: 8px;
 
   ${({ isPressed, variant, theme }) => {
     if (isPressed) {
-      return `background-color: ${
+      return `
+      background-color: ${
         variant === "primary"
           ? theme.colors.green_light
           : theme.colors.red_light
-      };`;
+      };
+      border: 0.5px solid ${
+        variant === "primary" ? theme.colors.green_dark : theme.colors.red_dark
+      };
+      `;
     }
-  }}
+  }};
 `;
 
 export const ButtonText = styled.Text`
-  gap: 8px;
+  font-size: ${({ theme }) => theme.font_size.xs};
+  font-family: ${({ theme }) => theme.font_family.bold};
 `;
