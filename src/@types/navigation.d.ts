@@ -4,6 +4,9 @@ export declare global {
       home: undefined;
       statistics: undefined;
       "new-meal": undefined;
+      "meal-detail": {
+        [key: string]: [value: string];
+      };
       feedback: {
         type: "onDiet" | "offDiet";
       };

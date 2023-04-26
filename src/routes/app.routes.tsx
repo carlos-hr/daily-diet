@@ -1,5 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { Home, Statistics } from "@screens/index";
+import { MealDetails } from "@screens/MealDetails";
 import { NewMeal } from "@screens/NewMeal";
 import { NewMealFeedback } from "@screens/NewMealFeedback";
 
@@ -12,6 +13,7 @@ export function AppRoutes() {
       <Screen name="statistics" component={Statistics} />
       <Screen name="new-meal" component={NewMeal} />
       <Screen name="feedback" component={NewMealFeedback} />
+      <Screen name="meal-detail" component={MealDetails} />
     </Navigator>
   );
 }
