@@ -11,7 +11,7 @@ import {
 } from "./styles";
 
 interface StatisticsProps extends PressableProps {
-  type: HighlightCardStylesProps;
+  type?: HighlightCardStylesProps;
   showDetailsButton?: boolean;
   navigationLink?: string;
   highlightData?: string;
@@ -23,7 +23,7 @@ interface StatisticsProps extends PressableProps {
 
 export function HighlightCard(props: React.PropsWithChildren<StatisticsProps>) {
   const {
-    type,
+    type = "neutral",
     highlightData,
     highlightText,
     showDetailsButton = false,
