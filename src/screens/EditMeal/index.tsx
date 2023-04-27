@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import { Container, HeaderText } from "./styles";
 
-export function NewMeal() {
+export function EditMeal() {
   const { navigate } = useNavigation();
 
   return (
@@ -21,7 +21,7 @@ export function NewMeal() {
         <MealForm />
 
         <Button
-          buttonText="Cadastrar refeição"
+          buttonText="Salvar alterações"
           variant="primary"
           onPress={() => navigate("feedback", { type: "offDiet" })}
         />

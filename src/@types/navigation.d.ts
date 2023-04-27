@@ -7,6 +7,9 @@ export declare global {
       "meal-detail": {
         [key: string]: [value: string];
       };
+      "edit-meal": {
+        [key: string]: [value: string];
+      };
       feedback: {
         type: "onDiet" | "offDiet";
       };
