@@ -20,6 +20,7 @@ export const Container = styled(TouchableOpacity)<ButtonStyleProps>`
   outline: none;
   height: 50px;
   border-radius: 6px;
+  width: 100%;
 `;
 
 export const ButtonText = styled.Text<ButtonStyleProps>`

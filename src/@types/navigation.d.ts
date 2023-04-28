@@ -4,8 +4,14 @@ export declare global {
       home: undefined;
       statistics: undefined;
       "new-meal": undefined;
+      "meal-detail": {
+        id: string;
+      };
+      "edit-meal": {
+        id: string;
+      };
       feedback: {
-        type: "positive" | "negative";
+        type: "onDiet" | "offDiet";
       };
     }
   }

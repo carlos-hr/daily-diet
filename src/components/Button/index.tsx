@@ -10,7 +10,7 @@ interface ButtonProps extends TouchableOpacityProps {
 export function Button({
   Icon,
   buttonText,
-  variant = "secondary",
+  variant = "primary",
   ...rest
 }: ButtonProps) {
   return (

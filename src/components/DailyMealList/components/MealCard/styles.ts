@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-export const Container = styled.View`
+export const Container = styled.Pressable`
   flex-direction: row;
   border: 1px solid ${({ theme }) => theme.colors.gray_500};
   border-radius: 6px;
