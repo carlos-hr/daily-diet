@@ -12,6 +12,6 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.gray_700};
   justify-content: space-between;
   flex: 1;
-  padding: 12px;
+  padding: 24px;
   padding-bottom: 24px;
 `;

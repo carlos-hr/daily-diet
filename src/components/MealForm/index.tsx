@@ -10,7 +10,11 @@ import {
 } from "./styles";
 import { MealType } from "./types";
 
-export function MealForm() {
+interface MealFormProps {
+  id?: string;
+}
+
+export function MealForm({ id }: MealFormProps) {
   const { colors } = useTheme();
   const [mealType, setMealType] = useState<MealType | null>(null);
 

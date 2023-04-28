@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { Circle } from "phosphor-react-native";
 import { useTheme } from "styled-components/native";
 import { Container, MealHourText, MealText, MealTextContainer } from "./styles";
@@ -6,13 +7,15 @@ interface MealCardProps {
   status?: "onDiet" | "offDiet";
   hour: string;
   meal: string;
+  id: string;
 }
 
-export function MealCard({ hour, meal, status = "onDiet" }: MealCardProps) {
+export function MealCard({ id, hour, meal, status = "onDiet" }: MealCardProps) {
   const { colors } = useTheme();
+  const { navigate } = useNavigation();
 
   return (
-    <Container>
+    <Container onPress={() => navigate("meal-detail", { id })}>
       <MealHourText>{hour}</MealHourText>
 
       <MealTextContainer>

@@ -2,8 +2,20 @@ import { Button } from "@components/Button";
 import { Header } from "@components/Header";
 import { HighlightCard } from "@components/HighlightCard";
 import { Circle, PencilSimpleLine, Trash } from "phosphor-react-native";
-import { View, Text } from "react-native";
+import { Text } from "react-native";
 import { useTheme } from "styled-components/native";
+import {
+  ButtonContainer,
+  Container,
+  HeaderText,
+  MealBadge,
+  MealDataContainer,
+  MealDateAndTimeText,
+  MealDateAndTimeTitle,
+  MealDescription,
+  MealDetailsContainer,
+  MealName,
+} from "./styles";
 
 export function MealDetails() {
   const { colors } = useTheme();
@@ -18,40 +30,45 @@ export function MealDetails() {
   };
 
   return (
-    <View>
-      <Header>
-        <HighlightCard type="positive">
-          <Text>Refeição</Text>
+    <>
+      <Header type="tertiary" showBackButton>
+        <HighlightCard type="neutral">
+          <HeaderText>Refeição</HeaderText>
         </HighlightCard>
       </Header>
 
-      <View>
-        <View>
-          <Text>{meal.meal}</Text>
-          <Text>{meal.description}</Text>
-        </View>
+      <Container>
+        <MealDataContainer>
+          <MealDetailsContainer>
+            <MealName>{meal.meal}</MealName>
+            <MealDescription>{meal.description}</MealDescription>
+          </MealDetailsContainer>
 
-        <View>
-          <Text>Data e hora</Text>
-          <Text>
-            {meal.day} às {meal.hour}
-          </Text>
-        </View>
+          <MealDetailsContainer>
+            <MealDateAndTimeTitle>Data e hora</MealDateAndTimeTitle>
+            <MealDateAndTimeText>
+              {meal.day} às {meal.hour}
+            </MealDateAndTimeText>
+          </MealDetailsContainer>
 
-        <View>
-          <Circle color={colors.green_dark} weight="fill" size={8} />
-          <Text>Dentro da dieta</Text>
-        </View>
-      </View>
+          <MealBadge>
+            <Circle color={colors.green_dark} weight="fill" size={8} />
+            <Text>dentro da dieta</Text>
+          </MealBadge>
+        </MealDataContainer>
 
-      <View>
-        <Button buttonText="Editar refeição" Icon={<Trash weight="fill" />} />
-        <Button
-          buttonText="Excluir refeição"
-          variant="secondary"
-          Icon={<PencilSimpleLine weight="light" />}
-        />
-      </View>
-    </View>
+        <ButtonContainer>
+          <Button
+            buttonText="Editar refeição"
+            Icon={<PencilSimpleLine weight="light" color={colors.white} />}
+          />
+          <Button
+            buttonText="Excluir refeição"
+            variant="secondary"
+            Icon={<Trash weight="light" />}
+          />
+        </ButtonContainer>
+      </Container>
+    </>
   );
 }

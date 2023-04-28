@@ -5,10 +5,10 @@ export declare global {
       statistics: undefined;
       "new-meal": undefined;
       "meal-detail": {
-        [key: string]: [value: string];
+        id: string;
       };
       "edit-meal": {
-        [key: string]: [value: string];
+        id: string;
       };
       feedback: {
         type: "onDiet" | "offDiet";

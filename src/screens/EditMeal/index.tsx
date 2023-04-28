@@ -13,7 +13,7 @@ export function EditMeal() {
     <View style={{ height: "100%" }}>
       <Header type="tertiary" showBackButton>
         <HighlightCard type="neutral">
-          <HeaderText>Nova refeição</HeaderText>
+          <HeaderText>Editar refeição</HeaderText>
         </HighlightCard>
       </Header>
 

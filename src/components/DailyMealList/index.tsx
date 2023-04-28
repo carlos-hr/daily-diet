@@ -26,7 +26,12 @@ export function DailyMealList({ meals }: MealsProps) {
       <React.Fragment>
         {meals.map((meal) => (
           <Container key={meal.id}>
-            <MealCard hour={meal.hour} meal={meal.meal} status={meal.status} />
+            <MealCard
+              hour={meal.hour}
+              meal={meal.meal}
+              status={meal.status}
+              id={meal.id}
+            />
           </Container>
         ))}
       </React.Fragment>
