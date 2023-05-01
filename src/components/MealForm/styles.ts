@@ -7,6 +7,18 @@ interface ButtonStyleProps {
   variant: ButtonVariants;
 }
 
+export const Container = styled.View`
+  z-index: 1;
+  margin-top: 12px;
+  border-top-right-radius: 24px;
+  border-top-left-radius: 24px;
+  background-color: ${({ theme }) => theme.colors.gray_700};
+  justify-content: space-between;
+  flex: 1;
+  padding: 24px;
+  padding-bottom: 24px;
+`;
+
 export const NewMealFormContainer = styled.View`
   padding-top: 36px;
   gap: 24px;

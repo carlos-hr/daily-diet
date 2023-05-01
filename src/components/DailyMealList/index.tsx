@@ -1,26 +1,14 @@
 import React from "react";
-import { View, Text, FlatList } from "react-native";
 import { MealCard } from "./components/MealCard";
 import { Container } from "./styles";
-
-interface Meal {
-  id: string;
-  hour: string;
-  meal: string;
-  status: "onDiet" | "offDiet";
-}
-
-export interface Meals {
-  id: string;
-  day: string;
-  meals: Meal[];
-}
+import { Meal } from "src/@types/meal";
 
 interface MealsProps {
   meals: Meal[];
+  day: string;
 }
 
-export function DailyMealList({ meals }: MealsProps) {
+export function DailyMealList({ meals, day }: MealsProps) {
   return (
     meals && (
       <React.Fragment>
@@ -28,9 +16,10 @@ export function DailyMealList({ meals }: MealsProps) {
           <Container key={meal.id}>
             <MealCard
               hour={meal.hour}
-              meal={meal.meal}
+              meal={meal.name}
               status={meal.status}
               id={meal.id}
+              day={day}
             />
           </Container>
         ))}
