@@ -5,6 +5,7 @@ export declare global {
       statistics: undefined;
       "new-meal": undefined;
       "meal-detail": {
+        day: string;
         id: string;
       };
       "edit-meal": {
