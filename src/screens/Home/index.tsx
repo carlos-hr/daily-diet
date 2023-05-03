@@ -31,7 +31,14 @@ export function Home() {
     const mealsList = await getAllMeals();
     const stats = await getMealStats();
 
-    setMealsData(mealsList);
+    setMealsData(
+      mealsList.sort((a, b) => {
+        const aa = a.day.split("/").reverse().join();
+        const bb = b.day.split("/").reverse().join();
+        console.log(aa, bb);
+        return aa > bb ? -1 : aa > bb ? 1 : 0;
+      })
+    );
     setMealsStats(stats);
   };
 
