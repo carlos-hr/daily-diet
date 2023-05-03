@@ -8,14 +8,21 @@ interface MealCardProps {
   hour: string;
   meal: string;
   id: string;
+  day: string;
 }
 
-export function MealCard({ id, hour, meal, status = "onDiet" }: MealCardProps) {
+export function MealCard({
+  id,
+  day,
+  hour,
+  meal,
+  status = "onDiet",
+}: MealCardProps) {
   const { colors } = useTheme();
   const { navigate } = useNavigation();
 
   return (
-    <Container onPress={() => navigate("meal-detail", { id })}>
+    <Container onPress={() => navigate("meal-detail", { id, day })}>
       <MealHourText>{hour}</MealHourText>
 
       <MealTextContainer>

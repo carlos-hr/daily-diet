@@ -11,73 +11,42 @@ import logo from "@assets/logo.png";
 import { Button } from "@components/Button";
 import { Plus } from "phosphor-react-native";
 import { useTheme } from "styled-components/native";
-import { Meals, DailyMealList } from "@components/DailyMealList";
-import { useNavigation } from "@react-navigation/native";
+import { DailyMealList } from "@components/DailyMealList";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { useCallback, useState } from "react";
+import { DailyMeal, Stats } from "src/@types/meal";
+import { getAllMeals } from "@storage/meal/getAllMeals";
+import { getMealStats } from "@storage/meal/getMealStats";
 
 export function Home() {
   const { colors } = useTheme();
-  const mealsData: Meals[] = [
-    {
-      id: "1",
-      day: "12.08.22",
-      meals: [
-        {
-          hour: "09:00",
-          meal: "Café",
-          id: "1-a",
-          status: "onDiet",
-        },
-        {
-          hour: "12:00",
-          meal: "Almoço",
-          status: "onDiet",
-          id: "2",
-        },
-        {
-          hour: "16:00",
-          meal: "Whey",
-          status: "onDiet",
-          id: "3",
-        },
-        {
-          hour: "20:00",
-          meal: "X-tudo",
-          status: "offDiet",
-          id: "4",
-        },
-      ],
-    },
-    {
-      id: "2",
-      day: "11.08.22",
-      meals: [
-        {
-          hour: "09:00",
-          meal: "Café",
-          status: "onDiet",
-          id: "1",
-        },
-        {
-          hour: "12:00",
-          meal: "Almoço",
-          status: "onDiet",
-          id: "2",
-        },
-        {
-          hour: "16:00",
-          meal: "Whey",
-          status: "onDiet",
-          id: "3",
-        },
-        {
-          hour: "20:00",
-          meal: "X-tudo",
-          status: "offDiet",
-          id: "4",
-        },
-      ],
-    },
-  ];
+  const [mealsData, setMealsData] = useState<DailyMeal[]>([]);
+  const [mealsStats, setMealsStats] = useState<Stats | null>(null);
+
+  const mealHighlight = mealsStats
+    ? ((mealsStats.totalOnDiet / mealsStats.total) * 100).toFixed(1)
+    : null;
+
+  const fetchInitialData = async () => {
+    const mealsList = await getAllMeals();
+    const stats = await getMealStats();
+
+    setMealsData(
+      mealsList.sort((a, b) => {
+        const aa = a.day.split("/").reverse().join();
+        const bb = b.day.split("/").reverse().join();
+        console.log(aa, bb);
+        return aa > bb ? -1 : aa > bb ? 1 : 0;
+      })
+    );
+    setMealsStats(stats);
+  };
+
+  useFocusEffect(
+    useCallback(() => {
+      fetchInitialData();
+    }, [])
+  );
 
   const { navigate } = useNavigation();
 
@@ -96,8 +65,12 @@ export function Home() {
       </LogoContainer>
 
       <HighlightCard
-        type="positive"
-        highlightData="90%"
+        type={
+          mealHighlight && Number(mealHighlight) >= 0.5
+            ? "positive"
+            : "negative"
+        }
+        highlightData={`${mealHighlight}%`}
         highlightText="das refeições dentro da dieta"
         showDetailsButton
         onPress={navigateToStatistics}
@@ -122,11 +95,11 @@ export function Home() {
           renderItem={({ item }) => (
             <DailyMealContainer>
               <MealDay>{item.day}</MealDay>
-              <DailyMealList meals={item.meals} />
+              <DailyMealList meals={item.meals} day={item.day} />
             </DailyMealContainer>
           )}
           ListEmptyComponent={() => (
-            <Text>Que tal cadastrar a primeira turma?</Text>
+            <Text>Que tal cadastrar a primeira refeição?</Text>
           )}
         />
       )}

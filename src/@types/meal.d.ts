@@ -13,3 +13,10 @@ export interface DailyMeal {
   day: string;
   meals: Meal[];
 }
+
+export interface Stats {
+  bestSequence: number;
+  total: number;
+  totalOffDiet: number;
+  totalOnDiet: number;
+}

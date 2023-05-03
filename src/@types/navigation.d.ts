@@ -10,6 +10,7 @@ export declare global {
       };
       "edit-meal": {
         id: string;
+        day: string;
       };
       feedback: {
         type: "onDiet" | "offDiet";
