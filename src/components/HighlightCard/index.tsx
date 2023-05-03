@@ -14,8 +14,8 @@ interface StatisticsProps extends PressableProps {
   type?: HighlightCardStylesProps;
   showDetailsButton?: boolean;
   navigationLink?: string;
-  highlightData?: string;
-  highlightText?: string;
+  highlightData?: string | number;
+  highlightText?: string | number;
   fullWidth?: boolean;
   highlightDataStyle?: string;
   highlightTextStyle?: string;
