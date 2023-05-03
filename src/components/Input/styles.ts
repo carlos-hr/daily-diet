@@ -26,5 +26,5 @@ export const StyledInput = styled(TextInput)<StyleProps>`
   border: 1px solid ${({ theme }) => theme.colors.gray_500};
   min-height: ${({ size }) => (size === "sm" ? "48px" : "120px")};
   padding: 8px;
-  vertical-align: ${({ size }) => size === "lg" && "top"};
+  vertical-align: ${({ size }) => (size === "lg" ? "top" : "middle")};
 `;
